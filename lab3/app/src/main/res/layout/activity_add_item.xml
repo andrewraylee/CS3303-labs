@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AddItemActivity">
+
     <!-- row 1 -->
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,6 +16,42 @@
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
         android:id="@+id/row1"
+        >
+
+        <TextView
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Number of items(s):"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemNumber"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- row 2 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintStart_toStartOf="@id/row1"
+        android:orientation="horizontal"
+        android:id="@+id/row2"
         >
 
         <TextView
@@ -34,16 +71,17 @@
             android:hint="Enter name"
             android:inputType="text" />
     </LinearLayout>
-    <!-- row 2 -->
+
+    <!-- row 3 -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".1"
-        app:layout_constraintStart_toStartOf="@id/row1"
+        app:layout_constraintVertical_bias=".19"
+        app:layout_constraintStart_toStartOf="@id/row2"
         android:orientation="horizontal"
-        android:id="@+id/row2"
+        android:id="@+id/row3"
         >
 
         <TextView
@@ -63,35 +101,7 @@
             android:hint="0.00"
             android:inputType="numberDecimal" />
     </LinearLayout>
-    <!-- row 3 -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".19"
-        app:layout_constraintStart_toStartOf="@id/row2"
-        android:orientation="horizontal"
-        android:id="@+id/row3"
-        >
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Item quantitiy"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="#673AB7"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/subtotal"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number" />
-    </LinearLayout>
     <!-- row 4 -->
     <LinearLayout
         android:layout_width="wrap_content"
@@ -108,89 +118,18 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Sales tax %"
+            android:text="Item quantity"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="#F44336"
+            android:textColor="#673AB7"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/tax"
+            android:id="@+id/quantity"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:hint="0.00"
-            android:inputType="numberDecimal" />
+            android:hint="0"
+            android:inputType="number" />
     </LinearLayout>
-    <!-- row 5 -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".37"
-        app:layout_constraintStart_toStartOf="@id/row4"
-        android:orientation="horizontal"
-        android:id="@+id/row5"
-        >
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Total"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="#03A9F4"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-        <EditText
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/total"
-            android:inputType="number"/>
-    </LinearLayout>
-    <!-- row 6 -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".46"
-        app:layout_constraintStart_toStartOf="@id/row5"
-        android:orientation="horizontal"
-        android:id="@+id/row6"
-        >
-
-        <Button
-            android:id="@+id/compute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:enabled="true"
-            android:text="Compute" />
-        <Button
-            android:id="@+id/add_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:enabled="false"
-            android:text="Add item" />
-    </LinearLayout>
-    <!-- row 7 -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias=".55"
-        app:layout_constraintStart_toStartOf="@id/row6"
-        android:orientation="horizontal"
-        >
-        <Button
-            android:id="@+id/show_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:enabled="false"
-            android:text="show list" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
